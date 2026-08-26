@@ -24,21 +24,21 @@
 	A pointer to dst.
 */
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char		*dp;
-	const char	*sp;
+	unsigned char		*dp;
+	unsigned const char	*sp;
 
 	if (src == dst)
 		return (dst);
-	dp = (char *)dst;
-	sp = (const char *)src;
-	if (sp < dp && sp + len > dp)
-		while (len--)
-			*(dp + len) = *(sp + len);
+	dp = (unsigned char *)dst;
+	sp = (unsigned const char *)src;
+	if (sp < dp && sp + n > dp)
+		while (n--)
+			*(dp + n) = *(sp + n);
 	else
 	{
-		while (len--)
+		while (n--)
 		{
 			*dp = *sp;
 			sp++;
