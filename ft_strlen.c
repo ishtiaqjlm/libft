@@ -6,13 +6,13 @@
 /*   By: ishtiahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 12:46:36 by ishtiahm          #+#    #+#             */
-/*   Updated: 2026/08/25 13:43:01 by ishtiahm         ###   ########.fr       */
+/*   Updated: 2026/08/26 14:51:03 by ishtiahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
