@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ishtiahm <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/08/25 12:34:53 by ishtiahm          #+#    #+#              #
+#    Updated: 2026/08/26 14:22:46 by ishtiahm         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 CC = cc
 RM = rm -f
@@ -10,8 +22,8 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 all:	${NAME}
 clean:
-		${RM} ${OBJS} 
+	${RM} ${OBJS} 
 fclean: clean
-		${RM} ${NAME}
+	${RM} ${NAME}
 re: fclean all
 .PHONY: all clean fclean re

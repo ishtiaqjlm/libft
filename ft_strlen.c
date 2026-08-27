@@ -6,9 +6,10 @@
 /*   By: ishtiahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 12:46:36 by ishtiahm          #+#    #+#             */
-/*   Updated: 2026/08/26 14:51:03 by ishtiahm         ###   ########.fr       */
+/*   Updated: 2026/08/27 12:10:26 by ishtiahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {
