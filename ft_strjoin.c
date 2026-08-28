@@ -6,7 +6,7 @@
 /*   By: ishtiahm <ishtiahm@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/28 01:57:20 by ishtiahm          #+#    #+#             */
-/*   Updated: 2026/08/28 01:57:20 by ishtiahm         ###   ########.fr       */
+/*   Updated: 2026/08/28 15:27:03 by ishtiahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 
 	if (!s1 || !s2)
-	    return (NULL);
-    len = ft_strlen(s1) + ft_strlen(s2);
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
 	s = ft_calloc(len + 1, sizeof(char));
 	if (!s)
 		return (NULL);

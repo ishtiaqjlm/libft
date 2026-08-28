@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strdup.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ishtiahm <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/28 15:35:37 by ishtiahm          #+#    #+#             */
+/*   Updated: 2026/08/28 15:35:53 by ishtiahm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
 /*
@@ -8,7 +19,6 @@
 	RETURN VALUE :
 	A pointer to the new string. NULL if the memory allocation fails.
 */
-
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;

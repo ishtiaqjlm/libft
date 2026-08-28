@@ -43,9 +43,26 @@ int	main(void)
 	char *ptr = ft_strnstr("hello", "llo", 3);
 	printf("cmp is  %s\n",ptr);
 	*/
+	/*
 	char str[] = "   -12345";
     	int num;
     	num = atoi(str);
     	printf("The integer value is: %d\n", num);
+	*/
+	char	**result;
+	int		i;
+	result = ft_split("  hello  world  ", ' ');
+	i = 0;
+	while (result[i])
+	{
+		printf("[%s]\n", result[i]);
+		i++;
+	}
+	while (i >=0)
+	{
+		free(result[i]);
+		i--;
+	}
+	free(result);
 	return (0);
 }
