@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 #include "libft.h"
 
 int	main(void)
@@ -49,6 +50,7 @@ int	main(void)
     	num = atoi(str);
     	printf("The integer value is: %d\n", num);
 	*/
+    /*
 	char	**result;
 	int		i;
 	result = ft_split("  hello  world  ", ' ');
@@ -63,6 +65,148 @@ int	main(void)
 		free(result[i]);
 		i--;
 	}
+	free(result);
+	*/
+	/*
+	void	*p;
+
+	p = ft_calloc(SIZE_MAX, 2);
+	if (!p)
+		printf("NULL\n");
+	else
+	{
+		printf("allocation succeeded\n");
+		free(p);
+	}
+	*/
+/*
+    char	*result;
+
+	result = ft_strtrim("  hello  ", " ");
+	printf("[%s]\n", result);
+	free(result);
+
+	result = ft_strtrim("xxhelloxx", "x");
+	printf("[%s]\n", result);
+	free(result);
+
+	result = ft_strtrim("!!--hello--!!", "!-");
+	printf("[%s]\n", result);
+	free(result);
+
+	result = ft_strtrim("-----", "-");
+	printf("[%s]\n", result);
+	free(result);
+
+	result = ft_strtrim("", " ");
+	printf("[%s]\n", result);
+	free(result);
+
+	result = ft_strtrim("hello", "");
+	printf("[%s]\n", result);
+	free(result);
+
+	result = ft_strtrim("xxhelloxxworldxx", "x");
+printf("[%s]\n", result);
+free(result);
+
+result = ft_strtrim("   hello", " ");
+printf("[%s]\n", result);
+free(result);
+*/
+/*
+char	*result;
+
+	result = ft_substr("Hello World", 0, 5);
+	printf("1: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("Hello World", 6, 5);
+	printf("2: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("Hello World", 0, 20);
+	printf("3: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("Hello World", 20, 5);
+	printf("4: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("Hello World", 5, 0);
+	printf("5: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("", 0, 5);
+	printf("6: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("Hello", 2, 2);
+	printf("7: [%s]\n", result);
+	free(result);
+
+	result = ft_substr("Hello", 2, 100);
+	printf("8: [%s]\n", result);
+	free(result);
+*/
+/*
+char	*result;
+
+	result = ft_strjoin("Hello ", "World");
+	printf("1: [%s]\n", result);
+	free(result);
+
+	result = ft_strjoin("", "World");
+	printf("2: [%s]\n", result);
+	free(result);
+
+	result = ft_strjoin("Hello", "");
+	printf("3: [%s]\n", result);
+	free(result);
+
+	result = ft_strjoin("", "");
+	printf("4: [%s]\n", result);
+	free(result);
+
+	result = ft_strjoin("Hello", " World!");
+	printf("5: [%s]\n", result);
+	free(result);
+
+	result = ft_strjoin("42", " Prague");
+	printf("6: [%s]\n", result);
+	free(result);
+
+	result = ft_strjoin("aaaa", "bbbb");
+	printf("7: [%s]\n", result);
+	free(result);
+	*/
+	char	*result;
+	result = ft_itoa(0);
+	printf("1: [%s]\n", result);
+	free(result);
+
+	result = ft_itoa(42);
+	printf("2: [%s]\n", result);
+	free(result);
+
+	result = ft_itoa(-42);
+	printf("3: [%s]\n", result);
+	free(result);
+
+	result = ft_itoa(123456);
+	printf("4: [%s]\n", result);
+	free(result);
+
+	result = ft_itoa(-123456);
+	printf("5: [%s]\n", result);
+	free(result);
+
+	result = ft_itoa(2147483647);
+	printf("6: [%s]\n", result);
+	free(result);
+
+	result = ft_itoa(-2147483648);
+	printf("7: [%s]\n", result);
 	free(result);
 	return (0);
 }

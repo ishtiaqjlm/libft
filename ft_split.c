@@ -12,7 +12,7 @@
 #include "libft.h"
 /*
 	DESCRIPTION :
-	The function ft_split allocates and copies an array of strings by 
+	The function ft_split allocates and copies an array of strings by
 	splitting the given string s using the given separator c.
 
 	RETURN VALUE :
@@ -55,8 +55,6 @@ static char	*ft_get_word(char const *s, char c, int *i)
 	int	start;
 	int	len;
 
-	while (s[*i] && s[*i] == c)
-		(*i)++;
 	start = *i;
 	while (s[*i] && s[*i] != c)
 		(*i)++;
@@ -64,21 +62,28 @@ static char	*ft_get_word(char const *s, char c, int *i)
 	return (ft_substr(s, start, len));
 }
 
+static void	ft_skip_delimiters(char const *s, char c, int *i)
+{
+	while (s[*i] && s[*i] == c)
+		(*i)++;
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
-	int		wordcount;
 	int		i;
 	int		j;
 
-	wordcount = ft_count_words(s, c);
-	strs = malloc(sizeof(*strs) * (wordcount + 1));
+	strs = malloc(sizeof(*strs) * (ft_count_words(s, c) + 1));
 	if (!strs)
 		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])
 	{
+		ft_skip_delimiters(s, c, &i);
+		if (!s[i])
+			break ;
 		strs[j] = ft_get_word(s, c, &i);
 		if (!strs[j])
 		{
