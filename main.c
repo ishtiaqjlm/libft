@@ -1,7 +1,24 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <fcntl.h>
 #include "libft.h"
-
+char	to_upper_even(unsigned int i, char c)
+{
+		if (i % 2 == 0 && c >= 'a' && c <= 'z')
+			return (c - 32);
+		return (c);
+}
+char	add_one(unsigned int i, char c)
+{
+	(void)i;
+	return (c + 1);
+}
+void	to_upper(unsigned int i, char *c)
+{
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+		*c -= 32;
+}
 int	main(void)
 {
 /*
@@ -180,6 +197,7 @@ char	*result;
 	printf("7: [%s]\n", result);
 	free(result);
 	*/
+	/*
 	char	*result;
 	result = ft_itoa(0);
 	printf("1: [%s]\n", result);
@@ -208,5 +226,25 @@ char	*result;
 	result = ft_itoa(-2147483648);
 	printf("7: [%s]\n", result);
 	free(result);
+	*/
+	/*
+	char	*result;
+	result = ft_strmapi("hello world", to_upper_even);
+	result = ft_strmapi("abcxyz", add_one);
+	printf("[%s]\n", result);
+	free(result);
+	*/
+    /*
+	char	str[] = "hello";
+	ft_striteri(str, to_upper);
+	printf("%s\n", str);
+	*/
+    int	fd;
+	ft_putchar_fd('A', 1);
+	write(1, "\n", 1);
+	fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	ft_putchar_fd('B', fd);
+	close(fd);
 	return (0);
+
 }
