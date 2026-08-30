@@ -39,18 +39,25 @@ static size_t	ft_numlen(long num)
 
 static void	ft_fill_number(long num, char *str, size_t len)
 {
+	size_t	i;
+
 	str[len] = '\0';
+	i = len - 1;
 	if (num < 0)
 	{
 		str[0] = '-';
 		num = -num;
-		len--;
 	}
-	while (len)
+	if (num == 0)
+		str[0] = '0';
+	else
 	{
-		str[len] = (num % 10) + '0';
-		num /= 10;
-		len--;
+		while (num > 0)
+		{
+			str[i] = (num % 10) + '0';
+			num /= 10;
+			i--;
+		}
 	}
 }
 
