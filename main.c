@@ -239,11 +239,48 @@ char	*result;
 	ft_striteri(str, to_upper);
 	printf("%s\n", str);
 	*/
+	/*
     int	fd;
 	ft_putchar_fd('A', 1);
 	write(1, "\n", 1);
 	fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	ft_putchar_fd('B', fd);
+	close(fd);*/
+	/*
+	ft_putstr_fd("Hello", 1);
+	write(1, "\n", 1);
+	*/
+	/*
+	int	fd;
+	ft_putendl_fd("Hello", 1);
+	ft_putendl_fd("42 Prague", 1);
+	ft_putendl_fd("", 1);
+	ft_putendl_fd(NULL, 1);
+	fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	ft_putendl_fd("Hello File", fd);
+	ft_putendl_fd("Second Line", fd);
+	close(fd);
+	*/
+	int	fd;
+	ft_putnbr_fd(0, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(42, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(-42, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(123456, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(-123456, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(2147483647, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(-2147483648, 1);
+	write(1, "\n", 1);
+	fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	ft_putnbr_fd(42, fd);
+	write(fd, "\n", 1);
+	ft_putnbr_fd(-2147483648, fd);
+	write(fd, "\n", 1);
 	close(fd);
 	return (0);
 

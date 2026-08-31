@@ -6,10 +6,10 @@
 /*   By: ishtiahm <ishtiahm@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 15:34:18 by ishtiahm          #+#    #+#             */
-/*   Updated: 2026/08/30 16:47:28 by ishtiahm         ###   ########.fr       */
+/*   Updated: 2026/08/31 18:56:03 by ishtiahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "libft.h"
 /*
 	DESRIPTION :
 	The function ft_strmapi applies the given function f to each character
