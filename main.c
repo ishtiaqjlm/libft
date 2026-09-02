@@ -19,6 +19,10 @@ void	to_upper(unsigned int i, char *c)
 	if (*c >= 'a' && *c <= 'z')
 		*c -= 32;
 }
+void	del_content(void *content)
+{
+	free(content);
+}
 int	main(void)
 {
 /*
@@ -261,7 +265,7 @@ char	*result;
 	ft_putendl_fd("Second Line", fd);
 	close(fd);
 	*/
-	int	fd;
+	/*int	fd;
 	ft_putnbr_fd(0, 1);
 	write(1, "\n", 1);
 	ft_putnbr_fd(42, 1);
@@ -281,7 +285,152 @@ char	*result;
 	write(fd, "\n", 1);
 	ft_putnbr_fd(-2147483648, fd);
 	write(fd, "\n", 1);
-	close(fd);
+	close(fd);*/
+	/*
+	char	*str;
+	t_list	*node;
+	str = "Hello";
+	node = ft_lstnew(str);
+	if (!node)
+		return (1);
+	printf("content: %s\n", (char *)node->content);
+	printf("next: %p\n", (void *)node->next);
+	free(node);*/
+	/*
+	t_list	*list;
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*node3;
+	list = NULL;
+	node1 = ft_lstnew("World");
+	node2 = ft_lstnew("42");
+	node3 = ft_lstnew("Hello");
+	ft_lstadd_front(&list, node1);
+	printf("1: %s\n", (char *)list->content);
+	ft_lstadd_front(&list, node2);
+	printf("2: %s -> %s\n",
+		(char *)list->content,
+		(char *)list->next->content);
+	ft_lstadd_front(&list, node3);
+	printf("3: %s -> %s -> %s\n",
+		(char *)list->content,
+		(char *)list->next->content,
+		(char *)list->next->next->content);
+	ft_lstadd_front(&list, NULL);
+	ft_lstadd_front(NULL, node1);
+	while (list)
+	{
+		t_list	*tmp = list;
+		list = list->next;
+		free(tmp);
+	}
+	*/
+	/*
+	t_list	*list;
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*node3;
+	list = NULL;
+	printf("1: %d\n", ft_lstsize(list));
+	node1 = ft_lstnew("Hello");
+	list = node1;
+	printf("2: %d\n", ft_lstsize(list));
+	node2 = ft_lstnew("World");
+	node3 = ft_lstnew("42");
+	node1->next = node2;
+	node2->next = node3;
+	printf("3: %d\n", ft_lstsize(list));
+	printf("4: %d\n", ft_lstsize(NULL));
+	free(node3);
+	free(node2);
+	free(node1);*/
+	/*
+	t_list	*list;
+	t_list	*node2;
+	t_list	*node3;
+	t_list	*last;
+	list = NULL;
+	last = ft_lstlast(list);
+	printf("1: %p\n", (void *)last);
+	list = ft_lstnew("Hello");
+	last = ft_lstlast(list);
+	printf("2: %s\n", (char *)last->content);
+	node2 = ft_lstnew("World");
+	node3 = ft_lstnew("42");
+	list->next = node2;
+	node2->next = node3;
+	last = ft_lstlast(list);
+	printf("3: %s\n", (char *)last->content);
+	printf("4: %p == %p\n", (void *)last, (void *)node3);
+	free(node3);
+	free(node2);
+	free(list);
+	*/
+	/*
+	t_list	*list;
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*node3;
+	t_list	*last;
+	list = NULL;
+	node1 = ft_lstnew("Hello");
+	ft_lstadd_back(&list, node1);
+	printf("1: %s\n", (char *)list->content);
+	node2 = ft_lstnew("World");
+	ft_lstadd_back(&list, node2);
+	printf("2: %s -> %s\n",
+		(char *)list->content,
+		(char *)list->next->content);
+	node3 = ft_lstnew("42");
+	ft_lstadd_back(&list, node3);
+	printf("3: %s -> %s -> %s\n",
+		(char *)list->content,
+		(char *)list->next->content,
+		(char *)list->next->next->content);
+	last = ft_lstlast(list);
+	printf("4: %s == %s\n",
+		(char *)last->content,
+		(char *)node3->content);
+	free(node3);
+	free(node2);
+	free(node1);
+	*/
+	/*
+	t_list	*node;
+	char	*content;
+	content = malloc(10);
+	node = ft_lstnew(content);
+	printf("1: node created = %p\n", (void *)node);
+	ft_lstdelone(node, del_content);
+	printf("1: node deleted\n");
+	ft_lstdelone(NULL, del_content);
+	printf("2: NULL node handled\n");
+	node = ft_lstnew("Hello");
+	printf("3: before deletion = %s\n", (char *)node->content);
+	ft_lstdelone(node, NULL);
+	printf("3: node deleted with NULL del\n");
+	*/
+	t_list	*list;
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*node3;
+	list = NULL;
+	ft_lstclear(&list, del_content);
+	printf("1: empty list = %p\n", (void *)list);
+	node1 = ft_lstnew(malloc(10));
+	list = node1;
+	ft_lstclear(&list, del_content);
+	printf("2: one node = %p\n", (void *)list);
+	node1 = ft_lstnew(malloc(10));
+	node2 = ft_lstnew(malloc(10));
+	node3 = ft_lstnew(malloc(10));
+	node1->next = node2;
+	node2->next = node3;
+	list = node1;
+	printf("3: before clear = %d nodes\n", ft_lstsize(list));
+	ft_lstclear(&list, del_content);
+	printf("3: after clear = %p\n", (void *)list);
+	ft_lstclear(NULL, del_content);
+	printf("4: NULL lst handled\n");
 	return (0);
-
 }
