@@ -19,6 +19,19 @@ void	to_upper(unsigned int i, char *c)
 	if (*c >= 'a' && *c <= 'z')
 		*c -= 32;
 }
+void	*duplicate_content(void *content)
+{
+	char	*str;
+
+	str = ft_strdup((char *)content);
+	return (str);
+}
+
+void	print_content(void *content)
+{
+	printf("%s", (char *)content);
+}
+
 void	del_content(void *content)
 {
 	free(content);
@@ -410,7 +423,7 @@ char	*result;
 	ft_lstdelone(node, NULL);
 	printf("3: node deleted with NULL del\n");
 	*/
-	t_list	*list;
+	/*t_list	*list;
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
@@ -431,6 +444,50 @@ char	*result;
 	ft_lstclear(&list, del_content);
 	printf("3: after clear = %p\n", (void *)list);
 	ft_lstclear(NULL, del_content);
-	printf("4: NULL lst handled\n");
+	printf("4: NULL lst handled\n");*/
+	/* Test 1: Empty list */
+	/*
+	t_list	*list;
+	t_list	*node2;
+	t_list	*node3;
+	list = NULL;
+	ft_lstiter(list, print_content);
+	printf("1: Empty list passed\n");
+	list = ft_lstnew("Hello");
+	printf("2:\n");
+	ft_lstiter(list, print_content);
+	node2 = ft_lstnew("World");
+	node3 = ft_lstnew("42");
+	list->next = node2;
+	node2->next = node3;
+	printf("3:\n");
+	ft_lstiter(list, print_content);
+	ft_lstiter(list, NULL);
+	printf("4: NULL function passed\n");
+	free(node3);
+	free(node2);
+	free(list);*/
+	t_list	*list;
+	t_list	*new_list;
+	t_list	*node2;
+	t_list	*node3;
+	list = ft_lstnew("Hello");
+	node2 = ft_lstnew("World");
+	node3 = ft_lstnew("42");
+	list->next = node2;
+	node2->next = node3;
+	new_list = ft_lstmap(list, duplicate_content, del_content);
+	printf("1: Original: ");
+	ft_lstiter(list, print_content);
+	printf("\n");
+	printf("1: New: ");
+	ft_lstiter(new_list, print_content);
+	printf("\n");
+	new_list = ft_lstmap(NULL, duplicate_content, del_content);
+	printf("2: Empty list = %p\n", (void *)new_list);
+	new_list = ft_lstmap(list, NULL, del_content);
+	printf("3: NULL function = %p\n", (void *)new_list);
+	ft_lstclear(&new_list, del_content);
+	ft_lstclear(&list, NULL);
 	return (0);
 }
