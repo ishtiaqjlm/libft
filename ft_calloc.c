@@ -9,7 +9,7 @@
 /*   Updated: 2026/08/28 18:05:45 by ishtiahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdint.h>
 #include "libft.h"
 
 /*
@@ -27,6 +27,8 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 
 	if (nelem == 0 || elsize == 0)
 		return (malloc(1));
+	if (nelem != 0 && elsize > SIZE_MAX / nelem)
+		return (NULL);
 	r = malloc(nelem * elsize);
 	if (!r)
 		return (NULL);
