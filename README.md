@@ -1,125 +1,93 @@
-*This project has been created as part of the 42 curriculum by ishtiahm.*
+# *This project has been created as part of the 42 curriculum by ishtiahm.*
 
 # Libft
 
 ## Description
 
-Libft is the first project of the 42 Common Core curriculum. The objective is to recreate a subset of the C Standard Library while gaining a deeper understanding of memory management, pointers, strings, data structures, and low-level programming.
+Libft is the first Common Core project at 42. Its goal is to recreate a collection of standard C library functions while following the 42 coding standard (Norminette). The project provides a reusable static library (`libft.a`) that can be linked with future 42 projects.
 
-The project consists of implementing common C library functions from scratch without relying on the original implementations. In addition to the mandatory functions, the bonus part introduces a generic singly linked list library.
+The library is divided into three mandatory parts:
 
-The final result is a reusable static library (`libft.a`) that can be linked with future 42 projects.
+* **Part 1:** Reimplementation of standard libc functions.
+* **Part 2:** Additional utility functions for string and memory manipulation.
+* **Part 3:** Singly linked list functions for creating and manipulating linked lists.
 
----
-
-## Library Overview
-
-The library is divided into three main parts.
-
-### Part 1 – Standard Library Functions
-
-This section reimplements commonly used functions from the C standard library.
-
-#### Character functions
-
-* ft_isalpha
-* ft_isdigit
-* ft_isalnum
-* ft_isascii
-* ft_isprint
-* ft_toupper
-* ft_tolower
-
-#### String functions
-
-* ft_strlen
-* ft_strchr
-* ft_strrchr
-* ft_strncmp
-* ft_strlcpy
-* ft_strlcat
-* ft_strnstr
-* ft_strdup
-
-#### Memory functions
-
-* ft_memset
-* ft_bzero
-* ft_memcpy
-* ft_memmove
-* ft_memchr
-* ft_memcmp
-
-#### Conversion and allocation
-
-* ft_atoi
-* ft_calloc
+All functions are implemented in C without using the original libc implementations (except where explicitly allowed).
 
 ---
 
-### Part 2 – Additional Utility Functions
+## Features
 
-These functions provide commonly used string manipulation and output utilities.
+### Part 1 – Libc Functions
 
-* ft_substr
-* ft_strjoin
-* ft_strtrim
-* ft_split
-* ft_itoa
-* ft_strmapi
-* ft_striteri
-* ft_putchar_fd
-* ft_putstr_fd
-* ft_putendl_fd
-* ft_putnbr_fd
+| Function   | Description                                            |
+| ---------- | ------------------------------------------------------ |
+| ft_isalpha | Checks whether a character is alphabetic.              |
+| ft_isdigit | Checks whether a character is a digit.                 |
+| ft_isalnum | Checks whether a character is alphanumeric.            |
+| ft_isascii | Checks whether a character is a valid ASCII character. |
+| ft_isprint | Checks whether a character is printable.               |
+| ft_strlen  | Returns the length of a string.                        |
+| ft_memset  | Fills a block of memory with a byte value.             |
+| ft_bzero   | Sets a block of memory to zero.                        |
+| ft_memcpy  | Copies memory from one location to another.            |
+| ft_memmove | Safely copies overlapping memory regions.              |
+| ft_strlcpy | Copies a string with size protection.                  |
+| ft_strlcat | Concatenates strings with buffer size protection.      |
+| ft_toupper | Converts a character to uppercase.                     |
+| ft_tolower | Converts a character to lowercase.                     |
+| ft_strchr  | Finds the first occurrence of a character in a string. |
+| ft_strrchr | Finds the last occurrence of a character in a string.  |
+| ft_strncmp | Compares two strings up to n characters.               |
+| ft_memchr  | Searches memory for a byte.                            |
+| ft_memcmp  | Compares two memory blocks.                            |
+| ft_strnstr | Finds a substring within a limited length.             |
+| ft_atoi    | Converts a string to an integer.                       |
 
 ---
 
-### Bonus – Linked List Library
+### Part 2 – Additional Functions
 
-The bonus part implements a generic singly linked list using the following structure:
+| Function      | Description                                                    |
+| ------------- | -------------------------------------------------------------- |
+| ft_calloc     | Allocates zero-initialized memory.                             |
+| ft_strdup     | Duplicates a string.                                           |
+| ft_substr     | Extracts a substring.                                          |
+| ft_strjoin    | Joins two strings into a new string.                           |
+| ft_strtrim    | Removes specified characters from both ends of a string.       |
+| ft_split      | Splits a string using a delimiter.                             |
+| ft_itoa       | Converts an integer to a string.                               |
+| ft_strmapi    | Applies a function to each character and returns a new string. |
+| ft_striteri   | Applies a function to each character in place.                 |
+| ft_putchar_fd | Writes a character to a file descriptor.                       |
+| ft_putstr_fd  | Writes a string to a file descriptor.                          |
+| ft_putendl_fd | Writes a string followed by a newline to a file descriptor.    |
+| ft_putnbr_fd  | Writes an integer to a file descriptor.                        |
 
-```c
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
-```
+---
 
-Implemented linked list functions:
+### Part 3 – Linked List Functions
 
-* ft_lstnew
-* ft_lstadd_front
-* ft_lstsize
-* ft_lstlast
-* ft_lstadd_back
-* ft_lstdelone
-* ft_lstclear
-* ft_lstiter
-* ft_lstmap
+| Function        | Description                                             |
+| --------------- | ------------------------------------------------------- |
+| ft_lstnew       | Creates a new linked list node.                         |
+| ft_lstadd_front | Adds a node to the beginning of a list.                 |
+| ft_lstsize      | Returns the number of nodes in a list.                  |
+| ft_lstlast      | Returns the last node of a list.                        |
+| ft_lstadd_back  | Adds a node to the end of a list.                       |
+| ft_lstdelone    | Deletes a single node using a user-provided function.   |
+| ft_lstclear     | Deletes an entire linked list.                          |
+| ft_lstiter      | Applies a function to every node in a list.             |
+| ft_lstmap       | Creates a new list by applying a function to each node. |
 
 ---
 
 ## Instructions
 
-### Clone the repository
-
-```bash
-git clone <repository-url>
-cd libft
-```
-
-### Compile the mandatory library
+### Compile the library
 
 ```bash
 make
-```
-
-### Compile the mandatory and bonus library
-
-```bash
-make bonus
 ```
 
 ### Remove object files
@@ -140,91 +108,32 @@ make fclean
 make re
 ```
 
-The compilation generates the static library:
-
-```text
-libft.a
-```
-
-which can be linked to future C projects.
+After compilation, the static library `libft.a` can be linked with other C projects.
 
 ---
 
-## Technical Choices
+## Technical Details
 
-* Programming language: C
+* Language: C
 * Compiler: cc
-* Compilation flags:
+* Compilation Flags:
 
-  * -Wall
-  * -Wextra
-  * -Werror
-* Build system: Makefile
-* Coding standard: Norminette (42)
-* Memory management performed manually using malloc() and free().
-
----
-
-## Testing
-
-The project was verified using:
-
-* Custom unit tests
-* Norminette
-* Tripouille's libftTester
-* Libft War Machine
-* Valgrind for memory leak detection
+  * `-Wall`
+  * `-Wextra`
+  * `-Werror`
+* Library Type: Static Library (`libft.a`)
+* Coding Standard: Norminette
 
 ---
 
 ## Resources
 
-### Official documentation
+### Official Documentation
 
+* 42 Libft Subject
+* Linux Manual Pages (`man`)
 * The Open Group Base Specifications (POSIX)
-* Linux manual pages (`man`)
-* ISO C Standard Library documentation
+* C Standard Library Reference (cplusplus.com)
+* cppreference.com
 
-### Learning resources
-
-* Beej's Guide to C Programming
-* cppreference.com (for understanding standard C library behavior)
-* GNU GCC documentation
-* Valgrind documentation
-
-### AI Usage
-
-Artificial Intelligence (ChatGPT) was used as a learning assistant throughout the project.
-
-AI was used to:
-
-* explain the behavior of standard C library functions;
-* discuss algorithms before implementation;
-* understand pointers, memory allocation, and linked lists;
-* help debug compilation and logic errors;
-* review Makefile structure;
-* suggest additional edge cases and test scenarios.
-
-All source code was implemented, compiled, tested, and debugged by the project author. AI was used for explanations, guidance, and code review rather than generating the final implementation.
-
----
-
-## Skills Acquired
-
-During this project, I developed practical experience with:
-
-* pointers and pointer arithmetic;
-* dynamic memory allocation;
-* string and memory manipulation;
-* function pointers;
-* linked lists;
-* static libraries;
-* Makefiles;
-* debugging with compiler diagnostics and Valgrind;
-* writing modular and reusable C code.
-
----
-
-## Author
-
-Ishtiaq Ahmed (42 login: ishtiahm)
+All source code was implemented, tested, and validated by the project author.
